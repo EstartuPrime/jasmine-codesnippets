@@ -1,0 +1,29 @@
+{
+    "name": "Jasmine-JS-CodeSnippets",
+    "publisher": "EstartuPrime",
+    "displayName": "Jasmine JavaScript snippets",
+    "description": "Jasmine JavaScript snippets for unit-tests in pure JavaScript.",
+    "iconUrl": "",
+    "galleryBanner": {
+        "color": "#000000",
+        "theme": "dark"        
+    },
+    "licenseUrl": "./LICENSE.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/EstartuPrime/vscode-jasmine-js-snippets.git"
+    },
+    "version": "0.1.5",
+    "engines": { "vscode": "^1.8.0" },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "javascript",
+                "path": "./snippets/javascript.json"
+            }
+        ]
+    }
+}
