@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "editorconfig.editorconfig",
+        "eamodio.gitlens",
+        "eg2.vscode-npm-script",
+        "wayou.vscode-todo-highlight",
+        "davidanson.vscode-markdownlint"
+    ],
+    "unwantedRecommendations": [
+        "estartuprime.jasmine-js-codesnippets"
+    ]
+}

@@ -1,56 +1,58 @@
 {
-	".jasmine.js": {
+    ".jasmine.js": {
         "describe block": {
-            "prefix": "jjDesc",
+            "prefix": "jjDescribe",
             "body": [
-                "describe('${1:Object_to_test}', function() {", 
-                "\t${2}", 
+                "describe('${1:Object_to_test}', function () {",
+                "\t${2}",
                 "});"
             ],
-            "description": "Jasmine javascript describe block"
+            "description": "Describe block"
         },
         "it block": {
             "prefix": "jjIt",
             "body": [
-                "it('${1:Description_of_the_single_test}', function() {",
+                "it('${1:Description_of_the_single_test}', function () {",
                 "\t${2}",
                 "});"
             ],
-            "description": "Jasmine javascript it function that contains a single test"
+            "description": "it-function block that contains a single test"
         },
         "beforeeach": {
-            "prefix": "jjBeforeeach",
+            "prefix": "jjBeforeEach",
             "body": [
                 "beforeEach(${1:function_name});${9}"
             ],
-            "description": "Jasmine javascript beforeEach function"
+            "description": "beforeEach function call"
         },
         "aftereach": {
-            "prefix": "jjAftereach",
+            "prefix": "jjAfterEach",
             "body": [
                 "afterEach(${1:function_name});${9}"
             ],
-            "description": "Jasmine javascript afterEach function"
+            "description": "afterEach function call"
         },
         "expectation": {
-            "prefix": "jjExp",
+            "prefix": "jjExpect",
             "body": [
                 "expect(${1:item}).${2:to...}(${3:expected_value});${4}"
             ],
-            "description": "Jasmine javascript expectation function"
+            "description": "expectation function chain"
         },
         "spyOn": {
-            "prefix": "jjSpy",
+            "prefix": "jjSpyOn",
             "body": [
                 "spyOn(${1:module}, '${2:function_name}')${3:.and};"
-            ]
+            ],
+            "description": "spyOn function chain"
         },
         "spyOn and expect": {
             "prefix": "jjSpyAndExp",
             "body": [
                 "spyOn(${1:module}, '${2:function_name}')${3:.and};",
                 "expect(${1:module}.${2:function_name}).toHaveBeenCalled${5}();${9}"
-            ]
+            ],
+            "description": "spyOn function chain with a following expectation function"
         }
-	}
+    }
 }
