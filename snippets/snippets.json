@@ -12,8 +12,28 @@
         "it block": {
             "prefix": "jjIt",
             "body": [
-                "it(`${1:Description_of_the_single_test}`, function () => {",
+                "it(`${1:Description_of_the_single_test}`, () => {",
                 "\t${2}",
+                "});"
+            ],
+            "description": "it-function block that contains a single test"
+        },
+        "async describe block": {
+            "prefix": "jjDescribeAsync",
+            "body": [
+                "describe(`${1:Object_to_test}`, (done) => {",
+                "\t${2}",
+                "\tdone(); // move this to the proper section.",
+                "});"
+            ],
+            "description": "Describe block"
+        },
+        "async it block": {
+            "prefix": "jjItAsync",
+            "body": [
+                "it(`${1:Description_of_the_single_test}`, (done) => {",
+                "\t${2}",
+                "\tdone(); // move this to the proper section.",
                 "});"
             ],
             "description": "it-function block that contains a single test"
