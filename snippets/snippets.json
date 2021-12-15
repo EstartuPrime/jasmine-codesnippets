@@ -3,7 +3,7 @@
         "describe block": {
             "prefix": "jjDescribe",
             "body": [
-                "describe('${1:Object_to_test}', function () {",
+                "describe(`${1:Object_to_test}`, () => {",
                 "\t${2}",
                 "});"
             ],
@@ -12,7 +12,7 @@
         "it block": {
             "prefix": "jjIt",
             "body": [
-                "it('${1:Description_of_the_single_test}', function () {",
+                "it(`${1:Description_of_the_single_test}`, function () => {",
                 "\t${2}",
                 "});"
             ],
