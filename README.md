@@ -21,3 +21,7 @@ The code itself is last modified in december 2016.
 ## Usage
 
 TODO
+
+## TODO
+
+Find a way to publish this extension via github-actions, so it can be builded and published with them.
