@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
         uses: actions/checkout@v2
-      
+
       - name: Setup NodeJS
         uses: actions/setup-node@v1
         with:
@@ -37,17 +37,20 @@ jobs:
         with:
           args: "package"
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
-          draft: false
-          prerelease: false
+    # Find out how it is properly used. It looks like the "tag_name" will create a tag on GitHub, but this can be a corrupt tag like refs/heads/master this results in a git error message like:
+    # error: Src-Refspec refs/heads/master entspricht mehr als einer Referenz.
+
+    #   - name: Create Release
+    #     id: create_release
+    #     uses: actions/create-release@v1
+    #     env:
+    #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+    #     with:
+    #       tag_name: ${{ github.ref }}
+    #       release_name: Release ${{ github.ref }}
+    #       body: |
+    #         Changes in this Release
+    #         - First Change
+    #         - Second Change
+    #       draft: false
+    #       prerelease: false
