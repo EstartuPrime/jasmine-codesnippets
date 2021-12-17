@@ -37,6 +37,11 @@ jobs:
         with:
           args: "package"
 
+      - uses: actions/upload-artifact@v2
+        with:
+          name: jasmine-codesnippets
+          path: /github/workspace/jasmine-js-codesnippets-0.3.0.vsix
+
     # Find out how it is properly used. It looks like the "tag_name" will create a tag on GitHub, but this can be a corrupt tag like refs/heads/master this results in a git error message like:
     # error: Src-Refspec refs/heads/master entspricht mehr als einer Referenz.
 
