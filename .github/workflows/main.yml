@@ -36,12 +36,12 @@ jobs:
       - name: Build Extension
         run: npx vsce
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: jasmine-codesnippets
           path: ${{ github.workspace }}/jasmine-js-codesnippets*.vsix
 
       - name: Create release
-        run: gh release create ${{ github.ref_name }} --generate-notes ./out/*.tar.gz ./out/*.deb
+        run: gh release create ${{ github.ref_name }} --generate-notes ./*.vsix
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
