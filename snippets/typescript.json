@@ -1,0 +1,76 @@
+{
+    "describe block": {
+        "prefix": "jjDescribe",
+        "body": [
+            "describe(`${1:Object_to_test}`, () => {",
+            "\t${2}",
+            "});"
+        ],
+        "description": "Describe block"
+    },
+    "it block": {
+        "prefix": "jjIt",
+        "body": [
+            "it(`${1:Description_of_the_single_test}`, () => {",
+            "\t${2}",
+            "});"
+        ],
+        "description": "it-function block that contains a single test"
+    },
+    "async describe block": {
+        "prefix": "jjDescribeAsync",
+        "body": [
+            "describe(`${1:Object_to_test}`, async () => {",
+            "\t// NOTE: use await for async method calls.",
+            "\t${2}",
+            "});"
+        ],
+        "description": "Describe block"
+    },
+    "async it block": {
+        "prefix": "jjItAsync",
+        "body": [
+            "it(`${1:Description_of_the_single_test}`, async () => {",
+            "\t// NOTE: use await for async method calls.",
+            "\t${2}",
+            "});"
+        ],
+        "description": "it-function block that contains a single test"
+    },
+    "before each": {
+        "prefix": "jjBeforeEach",
+        "body": [
+            "beforeEach(${1:function_name});${9}"
+        ],
+        "description": "beforeEach function call"
+    },
+    "after each": {
+        "prefix": "jjAfterEach",
+        "body": [
+            "afterEach(${1:function_name});${9}"
+        ],
+        "description": "afterEach function call"
+    },
+    "expectation": {
+        "prefix": "jjExpect",
+        "body": [
+            "expect(${1:item}).${2:to...}(${3:expected_value});${4}"
+        ],
+        "description": "expectation function chain"
+    },
+    "spyOn": {
+        "prefix": "jjSpyOn",
+        "body": [
+            "spyOn(${1:module}, '${2:function_name}')${3:.and};"
+        ],
+        "description": "spyOn function chain"
+    },
+    "spyOn and expect": {
+        "prefix": "jjSpyAndExp",
+        "body": [
+            "spyOn(${1:module}, '${2:function_name}')${3:.and};",
+            "expect(${1:module}.${2:function_name}).toHaveBeenCalled${5}();${9}"
+        ],
+        "description": "spyOn function chain with a following expectation function"
+    }
+}
