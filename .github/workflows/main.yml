@@ -33,9 +33,6 @@ jobs:
       - name: Install VSCE
         run: npm install -g vsce
 
-      - name: Update package.json Version
-        run: npm version ${{ github.ref_name }}
-
       - name: Build Extension
         run: npx vsce
 
