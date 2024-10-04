@@ -4,7 +4,17 @@ All notable changes to the "jasminesnippets" extension will be documented in thi
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [0.4.0] - 2024-10-04
+
+### Added
+
+Typescript support with async-await syntax for the async `describe` and `it` functions.
+
+## [0.3.0] - 2021-12-15
+
+### Added
+
+Async `describe` and `it` functions.
 
 ## [0.2.0] - 2019-02-26
 
