@@ -1,10 +1,10 @@
 {
-    "name": "jasmine-js-codesnippets",
-    "version": "0.3.0",
-    "displayName": "Jasmine JavaScript CodeSnippets",
+    "name": "jasmine-codesnippets",
+    "version": "0.4.0",
+    "displayName": "Jasmine CodeSnippets [jj]",
     "description": "Simple code snippets collection for Jasmine UnitTest framework",
     "publisher": "EstartuPrime",
-    "icon": "",
+    "icon": "assets/logo.png",
     "galleryBanner": {
         "color": "#000000",
         "theme": "dark"
@@ -24,7 +24,11 @@
         "snippets": [
             {
                 "language": "javascript",
-                "path": "./snippets/snippets.json"
+                "path": "./snippets/javascript.json"
+            },
+            {
+                "language": "typescript",
+                "path": "./snippets/typescript.json"
             }
         ]
     }
