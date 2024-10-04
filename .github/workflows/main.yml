@@ -6,7 +6,8 @@ name: Release
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    tags:
+      - '*'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,40 +23,28 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup NodeJS
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: 14
+          node-version: 20
 
-      - name: Install dependencies
-        run: npm install
-      - name: Setup VSCE
-        uses: lannonbr/vsce-action@3.0.0
-        with:
-          args: "package"
+      - name: Install VSCE
+        run: npm install -g vsce
+
+      - name: Update package.json Version
+        run: npm version ${{ github.ref_name }}
+
+      - name: Build Extension
+        run: npx vsce
 
       - uses: actions/upload-artifact@v2
         with:
           name: jasmine-codesnippets
-          path: ${{ github.workspace }}/jasmine-js-codesnippets-0.3.0.vsix
+          path: ${{ github.workspace }}/jasmine-js-codesnippets*.vsix
 
-    # Find out how it is properly used. It looks like the "tag_name" will create a tag on GitHub, but this can be a corrupt tag like refs/heads/master this results in a git error message like:
-    # error: Src-Refspec refs/heads/master entspricht mehr als einer Referenz.
-
-    #   - name: Create Release
-    #     id: create_release
-    #     uses: actions/create-release@v1
-    #     env:
-    #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-    #     with:
-    #       tag_name: ${{ github.ref }}
-    #       release_name: Release ${{ github.ref }}
-    #       body: |
-    #         Changes in this Release
-    #         - First Change
-    #         - Second Change
-    #       draft: false
-    #       prerelease: false
+      - name: Create release
+        run: gh release create ${{ github.ref_name }} --generate-notes ./out/*.tar.gz ./out/*.deb
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
